@@ -1,5 +1,6 @@
 package com.example.mini_project_crud_exercise.domian.entity;
 
+import com.example.mini_project_crud_exercise.domian.response.HospitalResponse;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -26,4 +27,9 @@ public class Hospital {
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
     private Float totalAreaSize;
+
+    public static HospitalResponse of(Hospital hospital){
+        return new HospitalResponse(hospital.getId(), hospital.getOpenServiceName(), hospital.getPhone(), hospital.getFullAddress(), hospital.getRoadNameAddress(), hospital.getHospitalName(),
+        hospital.getBusinessTypeName(),hospital.getHealthcareProviderCount(),hospital.getPatientRoomCount(),hospital.getTotalNumberOfBeds(),hospital.getTotalAreaSize());
+    }
 }

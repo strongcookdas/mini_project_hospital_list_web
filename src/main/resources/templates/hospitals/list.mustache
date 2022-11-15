@@ -1,0 +1,22 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    {{#hospitals}}
+    <tr>
+        <td>{{id}}</td>
+        <td><a href="/hospitals/{{id}}">{{hospitalName}}</a></td>
+    </tr>
+    {{/hospitals}}
+    </tbody>
+</table>
+<ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="?page={{previous}}">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{next}}">Next</a></li>
+</ul>
+{{>layouts/footer}}
