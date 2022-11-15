@@ -1,6 +1,6 @@
 package com.example.mini_project_crud_exercise.domian.entity;
 
-import com.example.mini_project_crud_exercise.domian.response.HospitalResponse;
+import com.example.mini_project_crud_exercise.domian.dto.HospitalResponse;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -26,6 +26,7 @@ public class Hospital {
     private Integer healthcareProviderCount;
     private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
+    private Integer businessStatusCode;
     private Float totalAreaSize;
 
     public static HospitalResponse of(Hospital hospital){
