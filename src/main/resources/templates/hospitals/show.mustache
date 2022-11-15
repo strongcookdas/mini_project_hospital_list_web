@@ -1,0 +1,57 @@
+{{>layouts/header}}
+<div class="container">
+    {{#hospital}}
+    <div class="card mt-1" style="width: 90%;">
+        <div class="card-body">
+            <h5 class="card-title">{{hospitalName}}</h5>
+            <p class="card-text">{{openServiceName}}/{{businessTypeName}}로 구분되며, 의료원 수는 {{healthcareProviderCount}}명, 입원실은 {{patientRoomCount}}개, 침대 수는 {{TotalNumberOfBeds}}개가 있습니다.  </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{fullAddress}}</li>
+            <li class="list-group-item">{{roadNameAddress}}</li>
+            <li class="list-group-item">{{phone}}</li>
+        </ul>
+    </div>
+    {{/hospital}}
+    <div class="mt-1">
+    <a href = "/board/{{id}}/edit" class="btn btn-success">Edit</a>
+    <a href = "/board/{{id}}/delete" class="btn btn-danger">Delete</a>
+    <a href = "/board">back</a>
+    </div>
+</div>
+<hr>
+<!-- comment -->
+<div class="container">
+    <h2>Comment</h2>
+    <form class="container">
+        <input type="hidden" name="articleId" value={{id}}>
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input class="form-control" name="name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Comment</label>
+            <input class="form-control" name="comment">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/board" >back</a>
+    </form>
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Comment</th>
+        </tr>
+        </thead>
+        <tbody class="table">
+        {{#comments}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{comment}}</td>
+            </tr>
+        {{/comments}}
+        </tbody>
+    </table>
+</div>
+{{>layouts/footer}}
