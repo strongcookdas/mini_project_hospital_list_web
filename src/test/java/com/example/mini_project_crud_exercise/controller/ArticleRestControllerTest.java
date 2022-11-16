@@ -54,13 +54,13 @@ class ArticleRestControllerTest {
     @Test
     @DisplayName("글 등록이 잘 되는지")
     void add() throws Exception {
-        ArticleRequest dto = new ArticleRequest("제목입니다", "내용입니다.");
+        ArticleRequest dto = new ArticleRequest("테스트 제목입니다", "테스트 내용입니다.");
 
         given(articleService.saveArticle(dto)).willReturn(new ArticleDto(1l, dto.getTitle(), dto.getContent()));
 
         mockMvc.perform(post("/api/article/new")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsBytes(new ArticleRequest("제목입니다", "내용입니다.")))
+                        .content(objectMapper.writeValueAsBytes(dto))
                 )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").exists())

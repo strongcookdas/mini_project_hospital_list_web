@@ -2,6 +2,7 @@ package com.example.mini_project_crud_exercise.domian.dto;
 
 import com.example.mini_project_crud_exercise.domian.entity.Article;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
