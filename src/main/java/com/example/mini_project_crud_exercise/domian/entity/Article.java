@@ -1,11 +1,10 @@
 package com.example.mini_project_crud_exercise.domian.entity;
 
-import com.example.mini_project_crud_exercise.domian.dto.ArticleResponse;
-import com.example.mini_project_crud_exercise.repository.ArticleRepository;
+import com.example.mini_project_crud_exercise.domian.dto.ArticleDto;
+import com.example.mini_project_crud_exercise.domian.dto.ArticleRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -22,7 +21,12 @@ public class Article {
     private String title;
     private String content;
 
-    public static ArticleResponse of(Article article){
-        return new ArticleResponse(article.getId(),article.getTitle(),article.getContent());
+    public static ArticleDto of(Article article){
+        return new ArticleDto(article.getId(),article.getTitle(),article.getContent());
+    }
+
+    public Article(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
